@@ -23,7 +23,7 @@ RSpec.describe 'outstanding todos', type: :request do
           description: "Hmm...",
         }),
         TodoAdded.new(aggregate_id: todo_id_3, body: {
-          title: 'Milk is for babies',
+          title: 'Milk is for babies', overview: 'Parenting advice'
         }),
         TodoAdded.new(aggregate_id: todo_id_4, body: {
           title: 'Your clothes, give them to me, now!',
@@ -52,6 +52,7 @@ RSpec.describe 'outstanding todos', type: :request do
           description: "Hmm...",
           due_date: '2017-06-13 00:00:00 UTC',
           stakeholder_email: nil,
+          overview: nil,
         },
         {
           todo_id: todo_id_3,
@@ -59,6 +60,7 @@ RSpec.describe 'outstanding todos', type: :request do
           description: nil,
           due_date: nil,
           stakeholder_email: nil,
+          overview: 'Parenting advice'
         },
       ])
     end
