@@ -1,5 +1,8 @@
 ENV['RACK_ENV'] = 'test'
 
+require 'simplecov'
+SimpleCov.start
+
 require 'rack/test'
 require 'securerandom'
 require 'database_cleaner'

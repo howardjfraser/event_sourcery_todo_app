@@ -17,4 +17,5 @@ group :development, :test do
   gem 'shotgun'
   gem 'commander'
   gem 'better_errors'
+  gem 'simplecov'
 end
