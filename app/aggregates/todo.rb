@@ -28,6 +28,9 @@ module EventSourceryTodoApp
       apply StakeholderNotifiedOfTodoCompletion do |event|
       end
 
+      # The methods below are how this aggregate handles different commands.
+      # Note how they raise new events to indicate the change in state.
+
       def add(payload)
         raise UnprocessableEntity, "Todo #{id.inspect} already exists" if added?
 
@@ -36,9 +39,6 @@ module EventSourceryTodoApp
           body: payload,
         )
       end
-
-      # The methods below are how this aggregate handles different commands.
-      # Note how they raise new events to indicate the change in state.
 
       def amend(payload)
         raise UnprocessableEntity, "Todo #{id.inspect} does not exist" unless added?
