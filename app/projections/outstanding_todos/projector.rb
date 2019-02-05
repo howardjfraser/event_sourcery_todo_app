@@ -14,6 +14,7 @@ module EventSourceryTodoApp
           column :description, :text
           column :due_date, DateTime
           column :stakeholder_email, :text
+          column :overview, :text
         end
 
         # Event handlers that update the projection in response to different events
@@ -26,6 +27,7 @@ module EventSourceryTodoApp
             description: event.body['description'],
             due_date: event.body['due_date'],
             stakeholder_email: event.body['stakeholder_email'],
+            overview: event.body['overview']
           )
         end
 
@@ -33,7 +35,7 @@ module EventSourceryTodoApp
           table.where(
             todo_id: event.aggregate_id,
           ).update(
-            event.body.slice('title', 'description', 'due_date', 'stakeholder_email')
+            event.body.slice('title', 'description', 'due_date', 'stakeholder_email', 'overview')
           )
         end
 
