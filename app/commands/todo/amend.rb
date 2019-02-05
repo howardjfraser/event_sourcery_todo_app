@@ -17,7 +17,8 @@ module EventSourceryTodoApp
               :title,
               :description,
               :due_date,
-              :stakeholder_email
+              :stakeholder_email,
+              :overview
             )
             @aggregate_id = payload.delete(:todo_id)
           end
